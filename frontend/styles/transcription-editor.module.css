@@ -1,0 +1,300 @@
+/* File: frontend/styles/transcription-editor.module.css - AGGIORNATO */
+
+/* Contenitore principale */
+.editorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--background);
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+}
+
+.toolbarWrapper{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 0px;
+  width: 100%;
+}
+
+.editorContainer {
+  width: 100%;
+  min-height: 250px;
+  background: white;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+  font-family: var(--font-primary);
+}
+
+.editorContainer ul,
+.editorContainer ol {
+  margin-left: 2rem;
+  padding-left: 1rem;
+}
+
+.editorContainer li {
+  margin-bottom: 0.5rem;
+}
+
+.editorTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.editorBox {
+  width: 100%;
+  min-height: 300px;
+  background: white;
+  border-radius: 6px;
+}
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+.saveButton {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: var(--button-primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.saveButton:hover:not(.disabled) {
+  background: var(--button-primary-color-hover);
+}
+
+/* Stile specifico per bottone OneDrive */
+.onedriveButton {
+  background: linear-gradient(135deg, #0078d4, #106ebe) !important;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.3);
+  transition: all 0.3s ease;
+}
+
+.onedriveButton:hover:not(.disabled) {
+  background: linear-gradient(135deg, #106ebe, #005a9e) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.4);
+}
+
+.disabled {
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Notifiche */
+.notification {
+  position: fixed;
+  top: 80px;
+  right: 90px;
+  background: #fff;
+  color: #155724;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  gap: 10px;
+  animation: fadeInOut 6s ease-in-out forwards;
+  z-index: 10000;
+  max-width: 400px;
+  flex-direction: column;
+}
+
+.notification.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.notification.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.successIcon {
+  font-size: 22px;
+  color: #28a745;
+}
+
+.errorIcon {
+  font-size: 22px;
+  color: #dc3545;
+}
+
+.fileInfo {
+  font-size: 14px;
+  margin-top: 4px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  font-size: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Stili editor content */
+.editorBox h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.editorBox h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.editorBox h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.editorBox p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+/* Progress Modal */
+.progressModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px 30px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  z-index: 9999;
+  border: 1px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editorWrapper {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  
+  .toolbarWrapper {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .buttonsContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .saveButton {
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  .notification {
+    right: 20px;
+    left: 20px;
+    max-width: none;
+  }
+  
+  .progressModal {
+    margin: 0 20px;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+/* Stati di caricamento per pulsanti specifici */
+.saveButton.loading {
+  position: relative;
+  color: transparent;
+}
+
+.saveButton.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+}
+
+/* Hover effects migliorati */
+.saveButton {
+  transition: all 0.3s ease;
+}
+
+.saveButton:hover:not(.disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.onedriveButton:hover:not(.disabled) {
+  box-shadow: 0 4px 15px rgba(0, 120, 212, 0.4);
+}

@@ -1,0 +1,258 @@
+/* admin-dashboard.module.css */
+.container {
+  padding: 0;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: var(--font-primary);
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: var(--font-primary-color);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: var(--button-primary-color);
+  color: white;
+  border-color: var(--button-primary-color);
+}
+
+.title {
+  font-size: 28px;
+  margin: 0;
+  color: var(--font-primary-color);
+  font-weight: 700;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.statIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--button-primary-color), #5d4ed3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.statContent h3 {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.statNumber {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--font-primary-color);
+  margin: 0 0 4px 0;
+}
+
+.statSubtext {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.actionCard {
+  background: white;
+  border-radius: 8px;
+  padding: 32px 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.actionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--button-primary-color);
+}
+
+.actionIcon {
+  font-size: 40px;
+  color: var(--button-primary-color);
+  margin-bottom: 16px;
+}
+
+.actionCard h3 {
+  font-size: 20px;
+  color: var(--font-primary-color);
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.actionCard p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.recentActivity {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+}
+
+.recentActivity h3 {
+  font-size: 18px;
+  color: var(--font-primary-color);
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityDate {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.activityText {
+  font-size: 14px;
+  color: #374151;
+}
+
+.accessDenied {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px;
+}
+
+.accessDenied h1 {
+  font-size: 32px;
+  color: var(--font-primary-color);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.accessDenied p {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+  
+  .headerContent {
+    padding: 0 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .statsGrid,
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .activityItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

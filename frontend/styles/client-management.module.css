@@ -1,0 +1,677 @@
+/* frontend/styles/client-management.module.css */
+
+/* ================================
+   CONTAINER PRINCIPALE GESTIONE CLIENTI
+   ================================ */
+
+.clientsContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  font-family: var(--font-primary);
+}
+
+/* ================================
+   HEADER CON RICERCA E AZIONI
+   ================================ */
+
+.clientsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.clientsHeader h2 {
+  font-size: 24px;
+  color: var(--font-primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.clientsActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #6b7280;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.searchInput {
+  width: 300px;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: var(--font-primary);
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--button-primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 55, 198, 0.1);
+}
+
+.createButton {
+  background: var(--button-primary-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.createButton:hover {
+  background: var(--button-primary-color-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(67, 55, 198, 0.3);
+}
+
+/* ================================
+   TABELLA CLIENTI
+   ================================ */
+
+.clientsTable {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-family: var(--font-primary);
+}
+
+.table th {
+  background: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.clientName {
+  font-weight: 500;
+  color: var(--font-primary-color);
+}
+
+/* ================================
+   AZIONI TABELLA
+   ================================ */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.actionButton {
+  background: none;
+  border: 1px solid #d1d5db;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.actionButton:hover {
+  background: #f3f4f6;
+  color: #374151;
+  transform: translateY(-1px);
+}
+
+.deleteButton {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+/* ================================
+   STATI LOADING E VUOTI
+   ================================ */
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-size: 16px;
+  gap: 12px;
+  font-family: var(--font-primary);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-family: var(--font-primary);
+}
+
+.emptyState p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   DETTAGLI CLIENTE
+   ================================ */
+
+.clientDetails {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-primary);
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detailsActions {
+  display: flex;
+  gap: 12px;
+}
+
+.editButton {
+  background: #10b981;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.editButton:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: var(--font-primary-color);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--font-primary);
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: var(--button-primary-color);
+  color: white;
+  border-color: var(--button-primary-color);
+}
+
+.detailsContent h2 {
+  font-size: 28px;
+  color: var(--font-primary-color);
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.detailsSection {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.detailsSection h3 {
+  font-size: 16px;
+  color: var(--font-primary-color);
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.detailsSection p {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detailsRow:last-child {
+  border-bottom: none;
+}
+
+.detailsRow span:first-child {
+  font-weight: 500;
+  color: #6b7280;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.detailsRow span:last-child {
+  color: #374151;
+  text-align: right;
+  word-break: break-word;
+  margin-left: 16px;
+}
+
+/* ================================
+   FORM MODIFICA
+   ================================ */
+
+.editForm {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-primary);
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.formHeader h2 {
+  font-size: 24px;
+  color: var(--font-primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section h3 {
+  font-size: 18px;
+  color: var(--font-primary-color);
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.input {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: var(--font-primary);
+  color: #111827;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--button-primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 55, 198, 0.1);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.cancelButton {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.submitButton {
+  background: var(--button-primary-color);
+  border: 1px solid var(--button-primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--button-primary-color-hover);
+  border-color: var(--button-primary-color-hover);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  background: #d1d5db;
+  border-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================================
+   NOTIFICHE
+   ================================ */
+
+.notification {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: slideInOut 3s ease-in-out forwards;
+  z-index: 1000;
+  max-width: 400px;
+}
+
+@keyframes slideInOut {
+  0% { opacity: 0; transform: translateX(100%); }
+  10% { opacity: 1; transform: translateX(0); }
+  90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 768px) {
+  .clientsHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .clientsActions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .searchInput {
+    width: 100%;
+  }
+  
+  .clientsTable {
+    font-size: 13px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px 12px;
+  }
+  
+  .detailsHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .detailsActions {
+    justify-content: center;
+  }
+  
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .detailsRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .detailsRow span:last-child {
+    text-align: left;
+    margin-left: 0;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .clientsContainer {
+    padding: 16px;
+  }
+  
+  .clientDetails {
+    padding: 16px;
+  }
+  
+  .editForm {
+    padding: 16px;
+  }
+  
+  /* Nascondi colonne non essenziali su mobile */
+  .table th:nth-child(4),
+  .table td:nth-child(4),
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    display: none;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .actionButton {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .notification {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+/* ================================
+   MIGLIORAMENTI ACCESSIBILITÀ
+   ================================ */
+
+.actionButton:focus {
+  outline: 2px solid var(--button-primary-color);
+  outline-offset: 2px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.createButton:focus,
+.editButton:focus,
+.backButton:focus,
+.submitButton:focus,
+.cancelButton:focus {
+  outline: 2px solid var(--button-primary-color);
+  outline-offset: 2px;
+}
+
+/* ================================
+   STATI INTERATTIVI MIGLIORATI
+   ================================ */
+
+.table tbody tr:focus-within {
+  background: #f3f4f6;
+  outline: 2px solid var(--button-primary-color);
+  outline-offset: -2px;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
